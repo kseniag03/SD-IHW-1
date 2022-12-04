@@ -42,14 +42,22 @@ public class Menu {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (!isExit) {
             printMenu();
+            int choice = 1;
             try {
                 String line = reader.readLine();
-                int choice = Integer.parseInt(line);
-                MenuTemplate entry = items.get(choice - 1);
-                entry.run();
+                if (line != null) {
+                    choice = Integer.parseInt(line);
+                    if (choice < 1 || choice > items.size()) {
+                        System.out.println("Option is out of range!\n");
+                        continue;
+                    }
+                }
             } catch (Throwable e) {
-                System.out.println(e.getMessage());
+                System.out.println("Wrong input format! " + e.getMessage() + "\n");
+                continue;
             }
+            MenuTemplate entry = items.get(choice - 1);
+            entry.run();
         }
     }
 
