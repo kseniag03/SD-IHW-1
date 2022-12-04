@@ -1,34 +1,45 @@
-public class Disk {
-    private byte color; // 0 - black, 1 - white, 2 - empty, ○ ● □ ■ - x, 3 - black possible move, 4 - white possible move
-    private final Point point;
+/**
+ * Class of the field cell
+ */
+public class Cell {
+    /** Flag if cell is located in the corner of the field */
+    private final boolean isCorner;
+    /** Flag if cell is located on the side of the field */
+    private final boolean isEdge;
+    /**
+     * Cell color:
+     * 0 - black, 1 - white,
+     * 2 - empty,
+     * 3 - black-possible-move, 4 - white-possible-move
+     * */
+    private byte color;
 
-    private boolean isCorner = false;
-    private boolean isEdge = false;
-
-    boolean isSelected;
-
-    public Disk(Point point) {
+    /**
+     * Constructor of the cell
+     * @param point coordinates of the cell
+     * @param maxSize max size of the game board
+     */
+    public Cell(Point point, int maxSize) {
         color = 2;
-        this.point = point;
         isCorner = point.x() == 1 && point.y() == 1
-                || point.x() == 1 && point.y() == Field.BOARD_SIZE
-                || point.x() == Field.BOARD_SIZE && point.y() == 1
-                || point.x() == Field.BOARD_SIZE && point.y() == Field.BOARD_SIZE;
-        isEdge = point.x() == 1 || point.x() == Field.BOARD_SIZE || point.y() == 1 || point.y() == Field.BOARD_SIZE;
+                || point.x() == 1 && point.y() == maxSize
+                || point.x() == maxSize && point.y() == 1
+                || point.x() == maxSize && point.y() == maxSize;
+        isEdge = point.x() == 1 || point.x() == maxSize || point.y() == 1 || point.y() == maxSize;
     }
 
-    public boolean isSelected() {
-        return isSelected;
-    }
-
+    /**
+     * Get cell's color
+     * @return cell's color
+     */
     public byte getColor() {
         return color;
     }
 
-    public Point getPoint() {
-        return point;
-    }
-
+    /**
+     * Get closed cell's value (calculations are based on the cell's location)
+     * @return value of current closed cell
+     */
     public double getClosedCellValue() {
         if (isCorner) {
             return 0;
@@ -39,6 +50,10 @@ public class Disk {
         }
     }
 
+    /**
+     * Get cell's value (calculations are based on the cell's location)
+     * @return value of current cell
+     */
     public double getCellValue() {
         if (isCorner) {
             return 0.8;
@@ -49,37 +64,26 @@ public class Disk {
         }
     }
 
+    /**
+     * Repaint the cell
+     * @param color new color
+     */
     public void setColor(byte color) {
         this.color = color;
     }
 
+    /**
+     * Override toString method
+     * @return string representation of the cell
+     */
     @Override
     public String toString() {
-
         return switch (color) {
             case 0 -> " ○ ";
             case 1 -> " ● ";
-            case 2 -> "   ";
             case 3 -> " □ ";
             case 4 -> " ■ ";
-            default -> " x";
+            default -> "   ";
         };
-
-        // return "Cell{" + "color=" + color + ", point=" + point + '}';
-    }
-
-    private void evaluation(Point point) { // not evaluation...
-        /*
-        if (point.getX() == 1 || point.getX() == 8) {
-            if (point.getY() == 1 || point.getY() == 8) {
-                isCorner = true;
-            } else {
-                isEdge = true;
-            }
-        } else if (point.getY() == 1 || point.getY() == 8) {
-            isEdge = true;
-        }
-        */
-
     }
 }
