@@ -4,8 +4,10 @@
 public class Cell {
     /** Flag if cell is located in the corner of the field */
     private final boolean isCorner;
+
     /** Flag if cell is located on the side of the field */
     private final boolean isEdge;
+
     /**
      * Cell color:
      * 0 - black, 1 - white,

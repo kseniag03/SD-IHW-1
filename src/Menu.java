@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Menu {
     /** List of menu items */
     private final ArrayList<MenuTemplate> items = new ArrayList<>();
+
    /** Flag if chosen exit option */
     private boolean isExit = false;
 

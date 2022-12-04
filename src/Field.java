@@ -7,10 +7,13 @@ import java.util.Stack;
 public class Field implements Reversi, Game {
     /** The game field */
     private final Cell[] field = new Cell[BOARD_SIZE * BOARD_SIZE];
+
     /** Possible moves for current state of the board */
     private final ArrayList<Move> possibleMoves = new ArrayList<>();
+
     /** The stack of moves for undo */
     private final Stack<Move> updates = new Stack<>();
+
     /** Possible directions to move */
     private final Point[] DIRECTIONS = {
             new Point(0, -1),   // Up
@@ -22,20 +25,26 @@ public class Field implements Reversi, Game {
             new Point(-1, 0),   // Left
             new Point(1, 0)     // Right
     };
+
     /**
      * immutable class of move
      * @param destination cell to move
      * @param recolor list of cells to recolor
      */
     private record Move(Point destination, ArrayList<Cell> recolor) {}
+
     /** Gameplay mode */
     private GameMode mode = GameMode.PLAYER_VS_COMPUTER;
+
     /** Gameplay difficulty */
     private DifficultyLevel level = DifficultyLevel.NORMAL;
+
     /** Current turn (true = black, false = white) */
     private boolean isBlackGo = true;
+
     /** Max score for black disks (during game session) */
     private int maxBlack = 0;
+
     /** Max score for white disks (during game session) */
     private int maxWhite = 0;
 
@@ -86,7 +95,8 @@ public class Field implements Reversi, Game {
                             iShift += dir.x();
                             jShift += dir.y();
                         }
-                        if (hasChangedDirection && iShift >= 0 && iShift < BOARD_SIZE && jShift >= 0 && jShift < BOARD_SIZE) {
+                        if (hasChangedDirection
+                                && iShift >= 0 && iShift < BOARD_SIZE && jShift >= 0 && jShift < BOARD_SIZE) {
                             if (field[iShift + BOARD_SIZE * jShift].getColor() == 2) {
                                 field[iShift + BOARD_SIZE * jShift].setColor((byte) (isBlackGo ? 3 : 4));
                                 destination = new Point(iShift + 1, jShift + 1);
