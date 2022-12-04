@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf941461-86cc-4666-af0e-2080455104b9" name="Changes" comment="some codestyle changes">
+    <list default="true" id="cf941461-86cc-4666-af0e-2080455104b9" name="Changes" comment="added check for menu input">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +53,7 @@
       <workItem from="1669985118884" duration="15748000" />
       <workItem from="1670061664363" duration="30308000" />
       <workItem from="1670134268333" duration="8071000" />
-      <workItem from="1670148588276" duration="34919000" />
+      <workItem from="1670148588276" duration="35377000" />
     </task>
     <task id="LOCAL-00001" summary="added reversi">
       <created>1670189868091</created>
@@ -69,7 +69,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670190944930</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added check for menu input">
+      <created>1670193453486</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670193453486</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,6 +96,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added reversi" />
     <MESSAGE value="some codestyle changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some codestyle changes" />
+    <MESSAGE value="added check for menu input" />
+    <option name="LAST_COMMIT_MESSAGE" value="added check for menu input" />
   </component>
 </project>

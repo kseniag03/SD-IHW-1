@@ -12,7 +12,11 @@ public class Main {
         System.out.print("Enter the position to move (e.g. '1 2'), 'z' to cancel last move or 'b' to return to menu: ");
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String[] line = reader.readLine().split(" ");
+            String input = reader.readLine();
+            if (input == null) {
+                return new Point(-1, -1);
+            }
+            String[] line = input.split(" ");
             if (line.length == 2) {
                 int x = Integer.parseInt(line[0]);
                 int y = Integer.parseInt(line[1]);
